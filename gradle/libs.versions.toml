@@ -15,6 +15,7 @@ jetbrainsKotlinJvm = "2.0.0"
 hilt = "2.52"
 ksp = "2.0.0-1.0.24"
 navigtation = "2.8.5"
+naverMap = "3.20.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -37,6 +38,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 kotlinx-serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+naver-map = { group = "com.naver.maps", name = "map-sdk", version.ref = "naverMap" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

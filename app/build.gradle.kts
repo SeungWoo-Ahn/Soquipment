@@ -64,4 +64,7 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    // naverMap
+    implementation(libs.naver.map)
 }

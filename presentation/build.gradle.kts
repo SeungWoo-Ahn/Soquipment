@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlin.serialization)
@@ -63,4 +64,7 @@ dependencies {
 
     // navigation
     implementation(libs.androidx.navigation)
+
+    // naverMap
+    implementation(libs.naver.map)
 }
