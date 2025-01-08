@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Soquipment"
 include(":app")
+include(":presentation")
