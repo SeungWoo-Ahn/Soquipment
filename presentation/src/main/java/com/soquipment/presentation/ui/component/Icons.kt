@@ -2,6 +2,8 @@ package com.soquipment.presentation.ui.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -28,5 +30,17 @@ fun CloseIcon(
         modifier = modifier.clickable(onClick = onClick),
         imageVector = Icons.Default.Close,
         contentDescription = "close-icon"
+    )
+}
+
+@Composable
+fun BackIcon(
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+) {
+    Icon(
+        modifier = modifier.clickable(onClick = onClick),
+        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+        contentDescription = "back-icon"
     )
 }

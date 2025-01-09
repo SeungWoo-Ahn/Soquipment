@@ -8,4 +8,7 @@ sealed interface Screen {
 
     @Serializable
     data object Payment : Screen
+
+    @Serializable
+    data object Result : Screen
 }
