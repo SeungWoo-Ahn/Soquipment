@@ -37,8 +37,8 @@ class PaymentViewModel @Inject constructor(
         }
     }
 
-    fun pay(moveResult: () -> Unit) {
+    fun pay(moveTacking: () -> Unit) {
         rentalEquipmentUseCase(rentalInfo.value)
-        moveResult()
+        moveTacking()
     }
 }

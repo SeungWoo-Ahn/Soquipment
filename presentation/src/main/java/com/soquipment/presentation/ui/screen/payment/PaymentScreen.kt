@@ -1,7 +1,6 @@
 package com.soquipment.presentation.ui.screen.payment
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,7 +42,7 @@ import com.soquipment.presentation.ui.theme.PrimaryColor
 @Composable
 fun PaymentRoute(
     modifier: Modifier = Modifier,
-    moveResult: () -> Unit,
+    moveTracking: () -> Unit,
     onBack: () -> Unit,
     viewModel: PaymentViewModel = hiltViewModel(),
 ) {
@@ -54,7 +53,7 @@ fun PaymentRoute(
         rentalInfo = rentalInfo,
         onTransitType = viewModel::onTransitType,
         onInsurance = viewModel::onInsurance,
-        onPay = { viewModel.pay(moveResult) },
+        onPay = { viewModel.pay(moveTracking) },
         onBack = onBack
     )
 }
@@ -105,7 +104,7 @@ private fun PaymentScreen(
 }
 
 @Composable
-private fun EquipmentInfo(
+fun EquipmentInfo(
     modifier: Modifier = Modifier,
     equipment: Equipment,
     company: Company,
@@ -232,7 +231,7 @@ private fun PayButtonView(
 }
 
 @Composable
-private fun Label(text: String) {
+fun Label(text: String) {
     Text(
         text = text,
         fontSize = 16.sp,
