@@ -27,7 +27,7 @@ fun SoquipmentApp(
         }
         composable<Screen.Payment> {
             PaymentRoute(
-                moveResult = { navController.navigate(Screen.Result) },
+                moveTracking = { navController.navigate(Screen.Tracking) },
                 onBack = { navController.popBackStack() }
             )
         }
