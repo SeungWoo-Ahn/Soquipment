@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.soquipment.presentation.navigation.Screen
 import com.soquipment.presentation.ui.screen.home.HomeRoute
 import com.soquipment.presentation.ui.screen.payment.PaymentRoute
+import com.soquipment.presentation.ui.screen.result.TrackingRoute
 
 @Composable
 fun SoquipmentApp(
@@ -28,6 +29,11 @@ fun SoquipmentApp(
         composable<Screen.Payment> {
             PaymentRoute(
                 moveTracking = { navController.navigate(Screen.Tracking) },
+                onBack = { navController.popBackStack() }
+            )
+        }
+        composable<Screen.Tracking> {
+            TrackingRoute(
                 onBack = { navController.popBackStack() }
             )
         }

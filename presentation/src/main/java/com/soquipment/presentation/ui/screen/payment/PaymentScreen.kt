@@ -104,7 +104,7 @@ private fun PaymentScreen(
 }
 
 @Composable
-private fun EquipmentInfo(
+fun EquipmentInfo(
     modifier: Modifier = Modifier,
     equipment: Equipment,
     company: Company,
@@ -231,7 +231,7 @@ private fun PayButtonView(
 }
 
 @Composable
-private fun Label(text: String) {
+fun Label(text: String) {
     Text(
         text = text,
         fontSize = 16.sp,
