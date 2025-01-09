@@ -15,9 +15,9 @@ fun SoquipmentApp(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = Screen.Main
+        startDestination = Screen.Home
     ) {
-        composable<Screen.Main> {
+        composable<Screen.Home> {
 
         }
     }
