@@ -6,18 +6,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -39,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import com.soquipment.domain.model.Company
 import com.soquipment.domain.model.Equipment
 import com.soquipment.presentation.ui.theme.PrimaryColor
+import com.soquipment.presentation.util.toCost
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -47,7 +44,7 @@ import kotlinx.coroutines.launch
 fun BottomSheet(
     sheetState: SheetState,
     onDismissRequest: () -> Unit,
-    content: @Composable() (ColumnScope.() -> Unit)
+    content: @Composable (ColumnScope.() -> Unit)
 ) {
     ModalBottomSheet(
         sheetState = sheetState,
@@ -97,6 +94,15 @@ fun UseTimeSheet(
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp
             )
+            Spacer(size = 30)
+            TimeItem(
+                title = "대여 시간",
+                time = rentalTime
+            )
+            TimeItem(
+                title = "반납 시간",
+                time = returnTime
+            )
         }
         Box(modifier = Modifier.weight(1f))
         Button(
@@ -122,6 +128,32 @@ fun UseTimeSheet(
                 fontSize = 16.sp
             )
         }
+    }
+}
+
+@Composable
+private fun TimeItem(
+    modifier: Modifier = Modifier,
+    title: String,
+    time: String
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(vertical = 20.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = title,
+            fontSize = 18.sp,
+            color = Color.Gray
+        )
+        Text(
+            text = time,
+            fontSize = 22.sp,
+            fontWeight = FontWeight.Medium
+        )
     }
 }
 
@@ -219,7 +251,7 @@ private fun EquipmentItem(
             )
             Spacer(size = 16)
             Text(
-                text = "${equipment.price}원",
+                text = "${equipment.price.toCost()}원",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Medium,
             )
