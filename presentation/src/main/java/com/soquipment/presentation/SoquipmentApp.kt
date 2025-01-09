@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.soquipment.presentation.navigation.Screen
 import com.soquipment.presentation.ui.screen.home.HomeRoute
+import com.soquipment.presentation.ui.screen.payment.PaymentRoute
 
 @Composable
 fun SoquipmentApp(
@@ -22,6 +23,12 @@ fun SoquipmentApp(
             HomeRoute(
                 scope = appState.coroutineScope,
                 movePayment = { navController.navigate(Screen.Payment) }
+            )
+        }
+        composable<Screen.Payment> {
+            PaymentRoute(
+                moveResult = { navController.navigate(Screen.Result) },
+                onBack = { navController.popBackStack() }
             )
         }
     }
