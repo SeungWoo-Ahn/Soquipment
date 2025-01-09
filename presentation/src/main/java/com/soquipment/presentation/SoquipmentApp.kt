@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.soquipment.presentation.navigation.Screen
+import com.soquipment.presentation.ui.screen.home.HomeRoute
 
 @Composable
 fun SoquipmentApp(
@@ -18,7 +19,10 @@ fun SoquipmentApp(
         startDestination = Screen.Home
     ) {
         composable<Screen.Home> {
-
+            HomeRoute(
+                scope = appState.coroutineScope,
+                movePayment = { navController.navigate(Screen.Payment) }
+            )
         }
     }
 }
