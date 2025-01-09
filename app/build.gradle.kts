@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,9 +8,13 @@ plugins {
     alias(libs.plugins.hilt)
 }
 
+val properties = Properties().apply {
+    load(project.rootProject.file("local.properties").inputStream())
+}
+
 android {
     namespace = "com.soquipment.android"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.soquipment.android"
@@ -18,6 +24,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "NAVER_CLIENT_ID", properties["NAVER_CLIENT_ID"] as String)
     }
 
     buildTypes {
@@ -38,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 

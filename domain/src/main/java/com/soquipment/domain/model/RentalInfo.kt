@@ -3,8 +3,7 @@ package com.soquipment.domain.model
 data class RentalInfo(
     val equipment: Equipment,
     val company: Company,
-    val rentalTime: UseTime,
-    val returnTime: UseTime,
+    val useTime: UseTime,
     val transitType: TransitType,
     val insurance: Insurance,
 ) {

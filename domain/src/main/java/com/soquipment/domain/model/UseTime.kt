@@ -1,6 +1,6 @@
 package com.soquipment.domain.model
 
 data class UseTime(
-    val data: String,
-    val time: String,
+    val rentalTime: String,
+    val returnTime: String,
 )
