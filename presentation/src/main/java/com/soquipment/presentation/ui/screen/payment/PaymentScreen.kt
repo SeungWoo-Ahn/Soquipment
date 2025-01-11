@@ -1,5 +1,6 @@
 package com.soquipment.presentation.ui.screen.payment
 
+import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -38,6 +39,7 @@ import com.soquipment.presentation.ui.component.NetworkImage
 import com.soquipment.presentation.ui.component.SoTopBar
 import com.soquipment.presentation.ui.component.Spacer
 import com.soquipment.presentation.ui.theme.PrimaryColor
+import com.soquipment.presentation.util.toCost
 
 @Composable
 fun PaymentRoute(
@@ -131,7 +133,7 @@ fun EquipmentInfo(
                     fontWeight = FontWeight.Medium
                 )
                 Text(
-                    text = "${equipment.price}원",
+                    text = "${equipment.price.toCost()}원",
                     fontSize = 14.sp,
                     color = PrimaryColor
                 )
@@ -221,8 +223,9 @@ private fun PayButtonView(
             shape = RectangleShape,
             onClick = onPay
         ) {
+            val costAnimate = animateIntAsState(targetValue = cost, label = "cost-anim")
             Text(
-                text = "${cost}원 결제하기",
+                text = "${costAnimate.value.toCost()}원 결제하기",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Medium
             )
@@ -289,7 +292,7 @@ private fun SelectView(
             Text(text = title)
         }
         Text(
-            text = "+${additionalCost}원",
+            text = "+${additionalCost.toCost()}원",
             color = if (isSelect) Color.Black else Color.Gray
         )
     }
